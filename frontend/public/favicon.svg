@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="#FFFFFF" />
+  <!-- Bridge Icon -->
+  <g transform="translate(56, 100) scale(0.8)">
+      <!-- Pillars -->
+      <rect x="50" y="150" width="40" height="200" rx="4" fill="url(#grad)" />
+      <rect x="410" y="150" width="40" height="200" rx="4" fill="url(#grad)" />
+      
+      <!-- Cable -->
+      <path d="M 70 160 Q 250 350, 430 160" fill="none" stroke="url(#grad)" stroke-width="30" stroke-linecap="round" />
+      
+      <!-- Deck -->
+      <path d="M 20 280 L 480 280" fill="none" stroke="#0F172A" stroke-width="40" stroke-linecap="round" />
+      
+      <!-- Vertical Suspenders -->
+      <line x1="130" y1="280" x2="130" y2="200" stroke="#94A3B8" stroke-width="15" />
+      <line x1="190" y1="280" x2="190" y2="245" stroke="#94A3B8" stroke-width="15" />
+      <line x1="250" y1="280" x2="250" y2="260" stroke="#94A3B8" stroke-width="15" />
+      <line x1="310" y1="280" x2="310" y2="245" stroke="#94A3B8" stroke-width="15" />
+      <line x1="370" y1="280" x2="370" y2="200" stroke="#94A3B8" stroke-width="15" />
+  </g>
+</svg>

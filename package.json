@@ -1,0 +1,28 @@
+{
+    "name": "careerbridge-mern",
+    "version": "1.0.0",
+    "description": "CareerBridge - Full Stack MERN Authentication System",
+    "scripts": {
+        "install:frontend": "cd frontend && npm install",
+        "install:backend": "cd backend && npm install",
+        "install:all": "npm run install:frontend && npm run install:backend",
+        "dev:frontend": "cd frontend && npm run dev",
+        "dev:backend": "cd backend && npm run dev",
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "build:frontend": "cd frontend && npm run build",
+        "start:backend": "cd backend && npm start"
+    },
+    "keywords": [
+        "mern",
+        "react",
+        "express",
+        "mongodb",
+        "authentication",
+        "jwt"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}
