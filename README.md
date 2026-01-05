@@ -23,8 +23,8 @@ CareerBridge is a modern, professional job portal platform connecting candidates
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/CareerBridge-Portal.git
-   cd CareerBridge-Portal
+   git clone https://github.com/ashurai1/CareerBridge.git
+   cd CareerBridge
    ```
 
 2. **Install Dependencies**
