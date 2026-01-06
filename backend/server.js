@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
+import dashboardRoutes from './routes/dashboardRoutes.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 
 // Load environment variables
@@ -57,6 +58,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // Health check route
 app.get('/api/health', (req, res) => {
