@@ -1,72 +1,216 @@
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?size=22&duration=3000&color=FFFFFF&background=000000&center=true&vCenter=true&lines=🚀+Live+on+Vercel;Click+to+Open+Website)](https://career-bridge-drab.vercel.app/)
+# CareerBridge - Job Portal Platform
 
-# CareerBridge - Professional Job Portal
+A modern MERN stack job portal connecting candidates with employers.
 
-![Project Status](https://img.shields.io/badge/Project%20Status-Working-success)
-![MERN Stack](https://img.shields.io/badge/Stack-MERN-blue)
+## 🚀 Quick Start
 
-CareerBridge is a modern, professional job portal platform connecting candidates with employers. Built with the **MERN Stack** (MongoDB, Express.js, React, Node.js), it features a high-performance serverless backend and a responsive, animated frontend.
+### For Team Members
 
-## 🚀 Features
+**Complete setup guide**: See [TEAM_SETUP.md](./TEAM_SETUP.md)
 
-- **Professional UI/UX**: Clean, corporate design with advanced animations (Bridge Loader, Slide Transitions).
-- **Dual Role System**: Seamless toggle between "Candidate" and "Employer" flows.
-- **Secure Authentication**: JWT-based auth with secure password hashing.
-- **Responsive Design**: Fully optimized for Desktop, Tablet, and Mobile devices.
-- **Serverless Ready**: Configured for tailored deployment on Vercel.
+```bash
+# 1. Clone repository
+git clone https://github.com/ashurai1/CareerBridge.git
+cd CareerBridge
 
-## 🛠️ Tech Stack
+# 2. Install dependencies
+npm install
 
-- **Frontend**: React (Vite), CSS3 (Variables, Animations), FontAwesome.
-- **Backend**: Node.js, Express.js, MongoDB (Mongoose).
-- **Deployment**: Vercel (Frontend & Serverless Backend).
+# 3. Setup environment variables
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
+# Edit .env files with credentials from team lead
 
-## 📦 Installation & Setup
+# 4. Start development server
+npm run dev
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ashurai1/CareerBridge.git
-   cd CareerBridge
-   ```
-
-2. **Install Dependencies**
-   ```bash
-   # Install Root dependencies
-   npm install
-
-   # Install Frontend dependencies
-   cd frontend
-   npm install
-
-   # Install Backend dependencies
-   cd ../backend
-   npm install
-   ```
-
-3. **Environment Variables**
-   Create a `.env` file in the `backend/` directory:
-   ```env
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret_key
-   PORT=5000
-   NODE_ENV=development
-   ```
-
-4. **Run Locally**
-   ```bash
-   # From the root directory
-   npm run dev
-   ```
-
-## ☁️ Deployment (Vercel)
-
-This project is configured for **Vercel Monorepo Deployment**.
-
-1. Push to GitHub.
-2. Import project into Vercel.
-3. Add Environment Variables (`MONGO_URI`, `JWT_SECRET`) in Vercel settings.
-4. Deploy!
+**Servers**:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8000
 
 ---
 
-**Developed by Ashwani Rai**
+## � Features
+
+- 🔐 **Authentication**: Email/password + OAuth (Google, GitHub, LinkedIn)
+- 👤 **User Roles**: Candidate & Employer dashboards
+- 💼 **Job Management**: Post, browse, and apply for jobs
+- 📊 **Application Tracking**: Monitor application status
+- 🎨 **Modern UI**: Responsive design with smooth animations
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend**:
+- React + Vite
+- React Router
+- CSS3 with animations
+
+**Backend**:
+- Node.js + Express
+- MongoDB Atlas (Cloud Database)
+- Passport.js (OAuth)
+- JWT Authentication
+
+---
+
+## 📁 Project Structure
+
+```
+CareerBridge/
+├── backend/
+│   ├── config/         # Database, Passport config
+│   ├── controllers/    # Business logic
+│   ├── models/         # MongoDB schemas
+│   ├── routes/         # API routes
+│   └── middleware/     # Auth middleware
+├── frontend/
+│   ├── src/
+│   │   ├── components/ # React components
+│   │   ├── pages/      # Page components
+│   │   └── services/   # API services
+│   └── public/         # Static assets
+└── package.json        # Root dependencies
+```
+
+---
+
+## 🔐 Environment Variables
+
+### Backend (`backend/.env`)
+
+```env
+MONGODB_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_jwt_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+LINKEDIN_KEY=your_linkedin_client_id
+LINKEDIN_SECRET=your_linkedin_client_secret
+BASE_URL=http://localhost:8000
+```
+
+### Frontend (`frontend/.env`)
+
+```env
+VITE_API_URL=http://localhost:8000/api
+```
+
+> **Note**: Contact team lead for actual credential values.
+
+---
+
+## 🗄️ Database
+
+**MongoDB Atlas** (Cloud Database)
+- Shared database for team collaboration
+- Free tier: 512MB storage
+- Always available (24/7)
+
+**Connection**: Team lead will provide MongoDB URI
+
+---
+
+## 🔄 Development Workflow
+
+```bash
+# Pull latest changes
+git pull origin main
+
+# Create feature branch (optional)
+git checkout -b feature/your-feature
+
+# Make changes and commit
+git add .
+git commit -m "feat: Add your feature"
+
+# Push changes
+git push origin main
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Port Already in Use
+```bash
+lsof -ti:5173 | xargs kill -9 2>/dev/null
+lsof -ti:8000 | xargs kill -9 2>/dev/null
+npm run dev
+```
+
+### MongoDB Connection Failed
+- Verify MongoDB URI in `.env`
+- Check if IP is whitelisted in MongoDB Atlas
+- Contact team lead for access
+
+### Environment Variables Not Loading
+- Restart server (Ctrl+C, then `npm run dev`)
+- Check `.env` file exists in correct location
+
+---
+
+## 📚 API Documentation
+
+### Authentication
+- `POST /api/auth/signup` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user
+- `GET /api/auth/google` - Google OAuth
+- `GET /api/auth/github` - GitHub OAuth
+- `GET /api/auth/linkedin` - LinkedIn OAuth
+
+### Jobs
+- `GET /api/jobs` - Get all jobs
+- `POST /api/jobs` - Create job (Employer only)
+- `GET /api/jobs/:id` - Get job details
+- `PUT /api/jobs/:id` - Update job (Employer only)
+- `DELETE /api/jobs/:id` - Delete job (Employer only)
+
+### Applications
+- `POST /api/applications` - Apply for job
+- `GET /api/applications` - Get user applications
+- `PUT /api/applications/:id` - Update application status
+
+---
+
+## 🤝 Contributing
+
+1. Clone the repository
+2. Create feature branch
+3. Make changes
+4. Test thoroughly
+5. Commit with clear message
+6. Push and create PR (if using branches)
+
+---
+
+## 📞 Support
+
+**Team Lead**: Contact for:
+- Database credentials
+- OAuth setup
+- Environment variables
+- Access issues
+
+**GitHub Issues**: Report bugs or request features
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
+
+---
+
+## 🎓 Team Members
+
+- **Lead**: Ashwani Rai
+- **Members**: [Add team member names]
+
+---
+
+**Built with ❤️ using MERN Stack**
