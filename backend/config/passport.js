@@ -47,12 +47,13 @@ const handleSocialLogin = async (provider, profile, done) => {
 
 // Google Strategy
 if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+    const baseUrl = process.env.BASE_URL || 'http://localhost:8000';
     passport.use(
         new GoogleStrategy(
             {
                 clientID: process.env.GOOGLE_CLIENT_ID,
                 clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-                callbackURL: '/api/auth/google/callback',
+                callbackURL: `${baseUrl}/api/auth/google/callback`,
             },
             async (accessToken, refreshToken, profile, done) => {
                 await handleSocialLogin('google', profile, done);
@@ -65,12 +66,13 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
 
 // GitHub Strategy
 if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
+    const baseUrl = process.env.BASE_URL || 'http://localhost:8000';
     passport.use(
         new GitHubStrategy(
             {
                 clientID: process.env.GITHUB_CLIENT_ID,
                 clientSecret: process.env.GITHUB_CLIENT_SECRET,
-                callbackURL: '/api/auth/github/callback',
+                callbackURL: `${baseUrl}/api/auth/github/callback`,
                 scope: ['user:email'],
             },
             async (accessToken, refreshToken, profile, done) => {
@@ -82,6 +84,7 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
 
 // LinkedIn Strategy (OpenID Connect)
 if (process.env.LINKEDIN_KEY && process.env.LINKEDIN_SECRET) {
+    const baseUrl = process.env.BASE_URL || 'http://localhost:8000';
     passport.use(
         'linkedin',
         new OAuth2Strategy(
@@ -90,7 +93,7 @@ if (process.env.LINKEDIN_KEY && process.env.LINKEDIN_SECRET) {
                 tokenURL: 'https://www.linkedin.com/oauth/v2/accessToken',
                 clientID: process.env.LINKEDIN_KEY,
                 clientSecret: process.env.LINKEDIN_SECRET,
-                callbackURL: '/api/auth/linkedin/callback',
+                callbackURL: `${baseUrl}/api/auth/linkedin/callback`,
                 scope: ['openid', 'profile', 'email'],
                 state: true,
             },
