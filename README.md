@@ -1,216 +1,82 @@
-# CareerBridge - Job Portal Platform
+# CareerBridge 🌉
 
-A modern MERN stack job portal connecting candidates with employers.
+CareerBridge is a full-stack MERN (MongoDB, Express, React, Node.js) application connecting job seekers with employers. It features role-based dashboards, job management, application tracking, and real-time notifications.
 
-## 🚀 Quick Start
+## 🚀 Prerequisites
 
-### For Team Members
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [MongoDB](https://www.mongodb.com/try/download/community) (Local server or Atlas URL)
+- Git
 
-**Complete setup guide**: See [TEAM_SETUP.md](./TEAM_SETUP.md)
+## 🛠️ Installation
 
+### 1. Clone the repository
 ```bash
-# 1. Clone repository
 git clone https://github.com/ashurai1/CareerBridge.git
 cd CareerBridge
+```
 
-# 2. Install dependencies
+### 2. Install Backend Dependencies
+```bash
+cd backend
 npm install
+```
 
-# 3. Setup environment variables
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
-# Edit .env files with credentials from team lead
+### 3. Install Frontend Dependencies
+```bash
+cd ../frontend
+npm install
+```
 
-# 4. Start development server
+## ⚙️ Configuration
+
+1. **Backend Environment**:
+   Create a `.env` file in the `backend` folder:
+   ```env
+   PORT=8000
+   MONGO_URI=mongodb://localhost:27017/careerbridge  # Or your MongoDB Atlas URL
+   JWT_SECRET=your_super_secret_key_123
+   CLIENT_URL=http://localhost:5173
+   ```
+
+2. **Frontend Environment**:
+   The frontend is configured to talk to `http://localhost:8000` by default via Vite proxy. No extra setup needed for local dev.
+
+## 🏃‍♂️ How to Run (Step-by-Step)
+
+You need to run **3 separate terminals**:
+
+### Terminal 1: Database
+Start MongoDB (if running locally):
+```bash
+mongod --dbpath ~/data/db --port 27017
+```
+
+### Terminal 2: Backend API
+```bash
+cd backend
 npm run dev
 ```
+*Server will start on port 8000*
 
-**Servers**:
-- Frontend: http://localhost:5173
-- Backend: http://localhost:8000
-
----
-
-## � Features
-
-- 🔐 **Authentication**: Email/password + OAuth (Google, GitHub, LinkedIn)
-- 👤 **User Roles**: Candidate & Employer dashboards
-- 💼 **Job Management**: Post, browse, and apply for jobs
-- 📊 **Application Tracking**: Monitor application status
-- 🎨 **Modern UI**: Responsive design with smooth animations
-
----
-
-## 🛠️ Tech Stack
-
-**Frontend**:
-- React + Vite
-- React Router
-- CSS3 with animations
-
-**Backend**:
-- Node.js + Express
-- MongoDB Atlas (Cloud Database)
-- Passport.js (OAuth)
-- JWT Authentication
-
----
-
-## 📁 Project Structure
-
-```
-CareerBridge/
-├── backend/
-│   ├── config/         # Database, Passport config
-│   ├── controllers/    # Business logic
-│   ├── models/         # MongoDB schemas
-│   ├── routes/         # API routes
-│   └── middleware/     # Auth middleware
-├── frontend/
-│   ├── src/
-│   │   ├── components/ # React components
-│   │   ├── pages/      # Page components
-│   │   └── services/   # API services
-│   └── public/         # Static assets
-└── package.json        # Root dependencies
-```
-
----
-
-## 🔐 Environment Variables
-
-### Backend (`backend/.env`)
-
-```env
-MONGODB_URI=your_mongodb_atlas_uri
-JWT_SECRET=your_jwt_secret
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-GITHUB_CLIENT_ID=your_github_client_id
-GITHUB_CLIENT_SECRET=your_github_client_secret
-LINKEDIN_KEY=your_linkedin_client_id
-LINKEDIN_SECRET=your_linkedin_client_secret
-BASE_URL=http://localhost:8000
-```
-
-### Frontend (`frontend/.env`)
-
-```env
-VITE_API_URL=http://localhost:8000/api
-```
-
-> **Note**: Contact team lead for actual credential values.
-
----
-
-## 🗄️ Database
-
-**MongoDB Atlas** (Cloud Database)
-- Shared database for team collaboration
-- Free tier: 512MB storage
-- Always available (24/7)
-
-**Connection**: Team lead will provide MongoDB URI
-
----
-
-## 🔄 Development Workflow
-
+### Terminal 3: Frontend Client
 ```bash
-# Pull latest changes
-git pull origin main
-
-# Create feature branch (optional)
-git checkout -b feature/your-feature
-
-# Make changes and commit
-git add .
-git commit -m "feat: Add your feature"
-
-# Push changes
-git push origin main
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Port Already in Use
-```bash
-lsof -ti:5173 | xargs kill -9 2>/dev/null
-lsof -ti:8000 | xargs kill -9 2>/dev/null
+cd frontend
 npm run dev
 ```
+*Client will run on http://localhost:5173*
 
-### MongoDB Connection Failed
-- Verify MongoDB URI in `.env`
-- Check if IP is whitelisted in MongoDB Atlas
-- Contact team lead for access
-
-### Environment Variables Not Loading
-- Restart server (Ctrl+C, then `npm run dev`)
-- Check `.env` file exists in correct location
-
----
-
-## 📚 API Documentation
-
-### Authentication
-- `POST /api/auth/signup` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
-- `GET /api/auth/google` - Google OAuth
-- `GET /api/auth/github` - GitHub OAuth
-- `GET /api/auth/linkedin` - LinkedIn OAuth
-
-### Jobs
-- `GET /api/jobs` - Get all jobs
-- `POST /api/jobs` - Create job (Employer only)
-- `GET /api/jobs/:id` - Get job details
-- `PUT /api/jobs/:id` - Update job (Employer only)
-- `DELETE /api/jobs/:id` - Delete job (Employer only)
-
-### Applications
-- `POST /api/applications` - Apply for job
-- `GET /api/applications` - Get user applications
-- `PUT /api/applications/:id` - Update application status
-
----
+## ✨ Key Features
+- **Responsive Dashboard**: Works on Mobile, Tablet, and Desktop.
+- **Role-Based Access**: Separate views for Candidates and Employers.
+- **Job Management**: Employers can Post, Edit, and Delete jobs.
+- **Application Tracking**: View applicants and manage their status (Shortlist/Reject).
+- **Dark/Light Theme**: Customized UI with glassmorphism effects.
 
 ## 🤝 Contributing
-
-1. Clone the repository
-2. Create feature branch
-3. Make changes
-4. Test thoroughly
-5. Commit with clear message
-6. Push and create PR (if using branches)
-
----
-
-## 📞 Support
-
-**Team Lead**: Contact for:
-- Database credentials
-- OAuth setup
-- Environment variables
-- Access issues
-
-**GitHub Issues**: Report bugs or request features
-
----
-
-## 📄 License
-
-This project is for educational purposes.
-
----
-
-## 🎓 Team Members
-
-- **Lead**: Ashwani Rai
-- **Members**: [Add team member names]
-
----
-
-**Built with ❤️ using MERN Stack**
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
