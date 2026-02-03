@@ -1,0 +1,293 @@
+/* ============================================
+   CAREERBRIDGE - GLOBAL STYLES
+   ============================================ */
+
+/* ========== IMPORTS & RESET ========== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ========== ROOT VARIABLES ========== */
+:root {
+    /* Primary Colors */
+    --primary-blue: #2563EB;
+    /* Professional Blue */
+    --primary-blue-dark: #1E40AF;
+    /* Darker Blue for hover */
+    --primary-blue-light: #3B82F6;
+    /* Lighter Blue */
+
+    /* Accent Colors */
+    --accent-green: #22C55E;
+    /* Professional Green (Secondary) */
+    --accent-yellow: #FACC15;
+    /* Soft Yellow (Highlight) */
+
+    /* Neutral Colors (Slate Palette) */
+    --white: #FFFFFF;
+    --gray-50: #F8FAFC;
+    /* Background */
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    /* Borders */
+    --gray-300: #CBD5E1;
+    --gray-400: #94A3B8;
+    --gray-500: #64748B;
+    /* Muted Text */
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1E293B;
+    --gray-900: #0F172A;
+    /* Primary Text */
+
+    /* Status Colors */
+    --success: #16A34A;
+    /* Green-600 */
+    --error: #DC2626;
+    /* Red-600 */
+    --warning: #FACC15;
+    /* Yellow */
+
+    /* Shadows (Soft & Modern) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08);
+    --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ========== DARK THEME VARIABLES ========== */
+[data-theme="dark"] {
+    /* Primary Colors - Adjusted for dark mode */
+    --primary-blue: #3B82F6;
+    --primary-blue-dark: #2563EB;
+    --primary-blue-light: #60A5FA;
+
+    /* Accent Colors */
+    --accent-green: #34D399;
+    --accent-yellow: #FCD34D;
+
+    /* Neutral Colors - Inverted for dark mode */
+    --white: #0F172A;
+    --gray-50: #1E293B;
+    --gray-100: #334155;
+    --gray-200: #475569;
+    --gray-300: #64748B;
+    --gray-400: #94A3B8;
+    --gray-500: #CBD5E1;
+    --gray-600: #E2E8F0;
+    --gray-700: #F1F5F9;
+    --gray-800: #F8FAFC;
+    --gray-900: #FFFFFF;
+
+    /* Status Colors */
+    --success: #22C55E;
+    --error: #EF4444;
+    --warning: #FCD34D;
+
+    /* Shadows - Lighter for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Text color variables for consistent form and content styling */
+:root {
+    --text-primary: var(--gray-900);
+    --text-secondary: var(--gray-600);
+}
+
+/* ========== BODY ========== */
+body {
+    background-color: var(--gray-50);
+    /* Clean White/Slate Background */
+    background-image: none;
+    color: var(--gray-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.6s ease-out;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Dynamic viewport height for mobile */
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+}
+
+/* ========== SMOOTH SCROLLING ========== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========== FORM & LABELS DEFAULTS ========== */
+label,
+.form-group label,
+.input-group label,
+.detail-group label,
+.cover-letter-section label,
+.stat-label {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+input,
+textarea,
+select,
+button,
+.profile-info-display,
+.profile-content,
+.settings-content {
+    color: var(--text-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+/* ========== HOME / AUTH CONTAINER (dark hero) ======== */
+/* Use #container which is applied by AuthContainer for landing forms */
+#container {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(118, 75, 162, 0.95));
+    color: white;
+}
+
+#container label,
+#container .form-group label,
+#container .input-group label,
+#container .detail-group label {
+    color: #FFFFFF !important;
+}
+
+#container input,
+#container textarea,
+#container select {
+    color: #1E293B;
+    /* Dark text for better readability */
+    background-color: rgba(255, 255, 255, 0.95);
+    /* More opaque white background */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#container input::placeholder,
+#container textarea::placeholder {
+    color: #64748B;
+    /* Medium gray for placeholders */
+    opacity: 1;
+}
+
+#container .btn-primary,
+#container .btn-secondary {
+    color: #fff;
+}
+
+/* If Sign In form (login) should use dark text even inside the hero container,
+   force sign-in specific styles to black for labels, inputs and headings. */
+#container .sign-in,
+#container .sign-in form,
+#container .sign-in .form-header,
+#container .sign-in .input-group,
+#container .sign-in .role-option {
+    color: var(--text-primary) !important;
+}
+
+#container .sign-in input,
+#container .sign-in textarea,
+#container .sign-in select {
+    background: var(--white) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--gray-300) !important;
+}
+
+#container .sign-in input::placeholder,
+#container .sign-in textarea::placeholder {
+    color: var(--text-secondary) !important;
+    opacity: 1;
+}
+
+#container .sign-in .form-header h1 {
+    color: var(--text-primary) !important;
+}
+
+/* Sign Up form - ensure good contrast */
+#container .sign-up input,
+#container .sign-up textarea,
+#container .sign-up select {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #1E293B !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+#container .sign-up input::placeholder,
+#container .sign-up textarea::placeholder {
+    color: #64748B !important;
+    opacity: 1;
+}
+
+#container .sign-up label {
+    color: #FFFFFF !important;
+    background: transparent !important;
+}
+
+/* ========== PERFORMANCE OPTIMIZATIONS ========== */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+    * {
+        animation-duration: 0.4s !important;
+        transition-duration: 0.3s !important;
+    }
+}

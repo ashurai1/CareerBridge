@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+    <meta name="description"
+        content="CareerBridge - Connect with your dream job. Login or signup as a candidate or employer." />
+    <meta name="theme-color" content="#667eea" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <title>CareerBridge - Login & Signup</title>
+
+    <style>
+        /* ============================================
+           CAREERBRIDGE BRIDGE BUILD LOADER
+           ============================================ */
+
+        #bridge-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            flex-direction: column;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+
+        #bridge-loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        .bridge-svg-loader {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        /* Pillars */
+        .pillar {
+            fill: #ffffff;
+            transform-origin: bottom;
+            transform: scaleY(0);
+            animation: risePillar 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .pillar-left {
+            animation-delay: 0.2s;
+        }
+
+        .pillar-right {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes risePillar {
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Main Cable (Catenary) */
+        .main-cable {
+            fill: none;
+            stroke: #60a5fa;
+            /* Lighter blue */
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: drawLine 1.2s ease-out 0.8s forwards;
+        }
+
+        /* Deck */
+        .deck-line {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: drawLine 1s ease-out 1.2s forwards;
+        }
+
+        /* Suspender Cables */
+        .suspender {
+            stroke: rgba(255, 255, 255, 0.5);
+            stroke-width: 1.5;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawLine 0.5s ease-out forwards;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Logo Text */
+        .loader-text {
+            margin-top: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 2.2s forwards;
+            letter-spacing: -0.5px;
+        }
+
+        .loader-subtext {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.8s ease-out 2.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bridge Builder Loader -->
+    <div id="bridge-loader">
+        <div class="loader-content">
+            <svg class="bridge-svg-loader" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                <!-- Left Pillar -->
+                <rect class="pillar pillar-left" x="50" y="50" width="20" height="100" />
+
+                <!-- Right Pillar -->
+                <rect class="pillar pillar-right" x="230" y="50" width="20" height="100" />
+
+                <!-- Main Catenary Cable -->
+                <path class="main-cable" d="M 60 60 Q 150 140, 240 60" fill="none" />
+
+                <!-- Suspender Cables -->
+                <line class="suspender" x1="90" y1="85" x2="90" y2="100" style="animation-delay: 1.4s" />
+                <line class="suspender" x1="120" y1="105" x2="120" y2="100" style="animation-delay: 1.5s" />
+                <line class="suspender" x1="150" y1="110" x2="150" y2="100" style="animation-delay: 1.6s" />
+                <line class="suspender" x1="180" y1="105" x2="180" y2="100" style="animation-delay: 1.7s" />
+                <line class="suspender" x1="210" y1="85" x2="210" y2="100" style="animation-delay: 1.8s" />
+
+                <!-- Bridge Deck -->
+                <path class="deck-line" d="M 20 100 L 280 100" />
+            </svg>
+        </div>
+        <div class="loader-text">CareerBridge</div>
+        <div class="loader-subtext">Building Your Future</div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+        // Bridge Loader Controller
+        (function () {
+            const loader = document.getElementById('bridge-loader');
+            // Pillars (0.8s) + Cable (1.2s delay 0.8) + Text (0.8s delay 2.2) + Read time
+            const ANIMATION_DURATION = 3500;
+
+            const hasSeenLoader = sessionStorage.getItem('bridge-loader-viewed');
+
+            if (hasSeenLoader) {
+                // Remove immediately if seen
+                loader.style.display = 'none';
+            } else {
+                // Show animation sequence
+                setTimeout(function () {
+                    loader.classList.add('fade-out');
+                    sessionStorage.setItem('bridge-loader-viewed', 'true');
+
+                    setTimeout(function () {
+                        loader.remove();
+                    }, 800); // Wait for fade out
+                }, ANIMATION_DURATION);
+            }
+        })();
+    </script>
+</body>
+
+</html>

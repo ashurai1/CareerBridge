@@ -1,0 +1,436 @@
+/* ============================================
+   MY APPLICATIONS PAGE - STYLES
+   ============================================ */
+
+.my-applications-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f4ff 100%);
+}
+
+/* Header */
+.applications-header {
+    margin-bottom: 2rem;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.header-content p {
+    font-size: 1rem;
+    color: var(--gray-600);
+}
+
+/* Header Stats */
+.header-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.stat-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.stat-box.applied {
+    border-left-color: #3b82f6;
+}
+
+.stat-box.shortlisted {
+    border-left-color: var(--success);
+}
+
+.stat-box.rejected {
+    border-left-color: var(--error);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Error Message */
+.error-message {
+    background: var(--error);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Filter Section */
+.filter-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    background: var(--gray-50);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-box:focus-within {
+    border-color: var(--primary-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filter-box svg {
+    color: var(--gray-400);
+    margin-right: 0.75rem;
+}
+
+.filter-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    outline: none;
+}
+
+.filter-input::placeholder {
+    color: var(--gray-400);
+}
+
+/* Filter Controls */
+.filter-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--gray-50);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-clear-filters {
+    padding: 0.75rem 1.5rem;
+    background: var(--error);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-clear-filters:hover {
+    background: #c91d1d;
+    transform: translateY(-2px);
+}
+
+/* Applications List */
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.no-applications {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-applications p {
+    color: var(--gray-600);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-browse-jobs {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-browse-jobs:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Application Card */
+.application-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.application-card.status-applied {
+    border-top-color: #3b82f6;
+}
+
+.application-card.status-shortlisted {
+    border-top-color: var(--success);
+}
+
+.application-card.status-rejected {
+    border-top-color: var(--error);
+}
+
+/* App Card Header */
+.app-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.app-title-section h3 {
+    font-size: 1.5rem;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.app-company {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Status Badge */
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.status-badge.status-applied {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-badge.status-shortlisted {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-badge.status-rejected {
+    background: #f8d7da;
+    color: #842029;
+}
+
+/* App Details */
+.app-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray-600);
+    font-size: 0.95rem;
+}
+
+.detail-item svg {
+    color: var(--primary-blue);
+}
+
+/* Cover Letter Section */
+.cover-letter-section {
+    background: var(--gray-50);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.cover-letter-section label {
+    display: block;
+    color: var(--gray-700);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.cover-letter-section p {
+    color: var(--gray-700);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* App Card Footer */
+.app-card-footer {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-view-job {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-view-job:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .my-applications-container {
+        padding: 1rem;
+    }
+
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .stat-box {
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+    }
+
+    .filter-select,
+    .btn-clear-filters {
+        width: 100%;
+    }
+
+    .app-card-header {
+        flex-direction: column;
+    }
+
+    .app-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .application-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-applications-container {
+        padding: 0.75rem;
+    }
+
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .app-card-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .app-title-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .application-card {
+        padding: 1rem;
+    }
+}
