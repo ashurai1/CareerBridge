@@ -1,3 +1,6 @@
+[![Project Demo](https://img.shields.io/badge/▶-Watch_Demo-red?style=for-the-badge)](https://drive.google.com/file/d/1MztrIt8ftXMUDjr4xtGsixoIwDrxPEn0/view)
+
+
 # CareerBridge 🌉
 
 CareerBridge is a full-stack MERN (MongoDB, Express, React, Node.js) application connecting job seekers with employers. It features role-based dashboards, job management, application tracking, and real-time notifications.
